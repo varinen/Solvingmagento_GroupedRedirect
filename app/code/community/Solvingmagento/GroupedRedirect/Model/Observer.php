@@ -38,10 +38,15 @@ class Solvingmagento_GroupedRedirect_Model_Observer
                 && $parent instanceof Mage_Catalog_Model_Product
                 && $parent->getTypeId() == 'grouped'
             ) {
-                Mage::app()->getResponse()->setRedirect($parent->getProductUrl());
+                $redirect = Mage::getStoreConfig(
+                    'catalog/grouped_options/redirect_enabled',
+                    Mage::app()->getStore()->getId()
+                );
+                if ($redirect) {
+                    Mage::app()->getResponse()->setRedirect($parent->getProductUrl());
+                }
                 break;
             }
         }
-
     }
 }

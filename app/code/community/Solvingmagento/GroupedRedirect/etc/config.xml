@@ -36,4 +36,11 @@
             </catalog_controller_product_init_after>
         </events>
     </global>
+    <default>
+        <catalog>
+            <grouped_options>
+                <redirect_enabled>1</redirect_enabled>
+            </grouped_options>
+        </catalog>
+    </default>
 </config>
